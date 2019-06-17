@@ -1,0 +1,8 @@
+FROM jenkins/jnlp-slave
+
+# For testing purpose only
+COPY empty-test-file /jenkins-slave3
+USER root
+RUN apt-get update && apt-get install -y maven
+USER jenkins
+ENTRYPOINT ["jenkins-slave"]
